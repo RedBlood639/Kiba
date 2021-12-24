@@ -2,8 +2,11 @@
 import styled from "styled-components";
 
 // -------------------------------------------------------
-export const MenuLayout = styled.div`
-  display: flex;
-  width: 100%;
-  height: 64px;
+export const SubMenuLayout = styled.div<{ displayMenu: boolean }>`
+  display: ${(props) => (props.displayMenu ? "block" : "none")};
+  position: absolute;
+  top: 56px;
+  background: #23242f;
+  border-radius: 16px;
+  color: white;
 `;

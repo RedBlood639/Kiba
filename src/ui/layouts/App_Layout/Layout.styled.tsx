@@ -2,6 +2,6 @@
 import styled from "styled-components";
 
 // -------------------------------------------------------
-export const HomeLayout = styled.div`
-  height: 100vh;
+export const AppLayout = styled.div`
+  background: #1a1b23;
 `;

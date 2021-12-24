@@ -38,4 +38,44 @@ const UserIcon: React.FC<IconProps> = ({
     </svg>
   );
 };
-export default { User: UserIcon };
+const UserIcon_active: React.FC<IconProps> = ({ iSize = { x: 40, y: 40 } }) => {
+  return (
+    <svg
+      width={iSize?.x}
+      height={iSize?.y}
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="20" cy="20" r="20" fill="#3B3C4E" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13 10L20 17L27 10"
+        fill="#3B3C4E"
+      />
+      <path
+        d="M13 10L20 17L27 10"
+        stroke="#53F3C3"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M27 29.5791L20 22.5791L13 29.5791"
+        fill="#3B3C4E"
+      />
+      <path
+        d="M27 29.5791L20 22.5791L13 29.5791"
+        stroke="#FF6370"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export default { User: UserIcon, User_active: UserIcon_active };
