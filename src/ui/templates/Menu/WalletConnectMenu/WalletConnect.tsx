@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { WalletConnectMenuLayout, IconLayout } from "./WalletConnect.styled";
 import { UserIcon } from "assets/icon";
-import { WalletConnectButton, MenuButton } from "ui/elements/Button";
+import { WalletConnectButton } from "ui/elements/Button";
 
-const SubMenu = () => {
+const WalletConnect = () => {
+  const [connected, setConnected] = useState(false);
+
   return (
     <WalletConnectMenuLayout>
       <IconLayout>
-        <UserIcon.User_active iSize={{ x: 30, y: 30 }} />
+        {connected ? (
+          <UserIcon.User_active iSize={{ x: 30, y: 30 }} />
+        ) : (
+          <UserIcon.User iSize={{ x: 30, y: 30 }} />
+        )}
       </IconLayout>
-      <WalletConnectButton />
-      <MenuButton />
+      <WalletConnectButton isActive={connected} setActive={setConnected} />
     </WalletConnectMenuLayout>
   );
 };
-export default SubMenu;
+export default WalletConnect;

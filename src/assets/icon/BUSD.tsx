@@ -2,11 +2,11 @@ import React from "react";
 //type
 import { IconProps } from "Types/components/Icon";
 //--------------------------
-const BUSD: React.FC<IconProps> = () => {
+const BUSD: React.FC<IconProps> = ({ iSize = { x: 32, y: 32 } }) => {
   return (
     <svg
-      width="32"
-      height="32"
+      width={iSize?.x}
+      height={iSize?.y}
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

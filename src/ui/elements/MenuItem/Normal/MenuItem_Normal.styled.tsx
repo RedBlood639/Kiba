@@ -6,8 +6,13 @@ import { SubMenuLayout } from "ui/templates/Menu/SubMenu/SubMenu.styled";
 export const MenuItemLayout = styled.div`
   position: relative;
 `;
-export const ItemLayout = styled.div<{ hover: boolean }>`
-  ${(props) => (!props.hover ? "color: #ffffff" : "color: red")};
+export const ItemLayout = styled.div<{ hover: boolean; active: boolean }>`
+  ${(props) =>
+    props.active
+      ? "color: red"
+      : !props.hover
+      ? "color: #ffffff"
+      : "color: red"};
   path {
     ${(props) => (props.hover ? "stroke: red" : "")};
   }

@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import { Home } from "ui/templates/Home";
+import { Home } from "ui/view/Home";
 
-const Homepage: NextPage = () => {
+const HomePage: NextPage = () => {
   return <Home />;
 };
 
-export default Homepage;
+export default HomePage;

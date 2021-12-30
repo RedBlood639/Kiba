@@ -43,3 +43,23 @@ export const IconLayout = styled.div`
   align-items: center;
   margin-right: 4px;
 `;
+
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 26px;
+`;
+export const ItemList = styled.div`
+  & > *:not(:last-child) {
+    margin-bottom: 16px;
+  }
+`;
+export const Text = styled.div`
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #ffffff;
+`;
