@@ -80,13 +80,10 @@ const Liquidity = () => {
       height: "537px",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      display: "flex",
-      flexDirection: "column",
       padding: "24px",
       background: "#23242F",
       borderRadius: "24px",
       overflow: "auto",
-      WebkitOverflowScrolling: "touch",
       outline: "none",
     },
     overlay: {

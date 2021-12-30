@@ -23,6 +23,8 @@ const PoolSelectorBar: React.FC<{ data: Function }> = ({ data }) => {
     { name: "Group B", value: 5084.7876 },
   ];
   const COLORS = ["#0177FB", "#FFD95C"];
+  const [toInput, setToInput] = useState(0);
+  const [fromInput, setFromInput] = useState(0);
   return (
     <AddLiquidityLayout>
       <TitleLayout>
@@ -51,7 +53,12 @@ const PoolSelectorBar: React.FC<{ data: Function }> = ({ data }) => {
             </Row>
           </MarginDiv>
           <MarginDiv top={8}>
-            <CardSelector icon={FTR} text="FTR" value={400}></CardSelector>
+            <CardSelector
+              icon={FTR}
+              text="FTR"
+              value={400}
+              getvalue={setFromInput}
+            ></CardSelector>
           </MarginDiv>
           <MarginDiv top={16}>
             <Row center={true}>
@@ -70,6 +77,7 @@ const PoolSelectorBar: React.FC<{ data: Function }> = ({ data }) => {
               icon={Binance}
               text="BUSD"
               value={129.16706043}
+              getvalue={setToInput}
             ></CardSelector>
           </MarginDiv>
           <MarginDiv top={24}>
@@ -115,7 +123,12 @@ const PoolSelectorBar: React.FC<{ data: Function }> = ({ data }) => {
             </Row>
           </MarginDiv>
           <MarginDiv top={8}>
-            <CardSelector icon={Eth} text="ETH" value={0}></CardSelector>
+            <CardSelector
+              icon={Eth}
+              text="ETH"
+              value={0}
+              getvalue={setToInput}
+            ></CardSelector>
           </MarginDiv>
           <MarginDiv top={16} bottom={84}>
             <PoolDetail>
