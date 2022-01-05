@@ -13,7 +13,7 @@ import {
 import { Claim } from "assets/icon";
 
 import { PoolItemData } from "Types/components/PoolItem";
-import { space } from "styled-system";
+
 const MenuItem_Normal: React.FC<{
   data: PoolItemData;
 }> = ({ data }) => {

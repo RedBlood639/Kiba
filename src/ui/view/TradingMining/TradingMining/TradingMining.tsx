@@ -1,9 +1,9 @@
 import React from "react";
 import {
-  HomeLayout,
-  ChartContainer,
-  ChartHeader,
-  ChartLayout,
+  PageLayout,
+  LeaderboardContainer,
+  LeaderboardHeader,
+  LeaderboardLayout,
   DetailContainer,
   DetailHeader,
   DetailLayout,
@@ -11,23 +11,29 @@ import {
 
 import { Menu } from "ui/templates/Menu";
 import { WalletConnectMenu } from "ui/templates/Menu";
+import { Leaderboard } from "ui/templates/Leaderboard";
+import { Trading } from "ui/templates/Trading";
 
 const Home = () => {
   return (
-    <HomeLayout>
-      <ChartContainer>
-        <ChartHeader>
+    <PageLayout>
+      <LeaderboardContainer>
+        <LeaderboardHeader>
           <Menu />
-        </ChartHeader>
-        <ChartLayout></ChartLayout>
-      </ChartContainer>
+        </LeaderboardHeader>
+        <LeaderboardLayout>
+          <Leaderboard />
+        </LeaderboardLayout>
+      </LeaderboardContainer>
       <DetailContainer>
         <DetailHeader>
           <WalletConnectMenu />
         </DetailHeader>
-        <DetailLayout></DetailLayout>
+        <DetailLayout>
+          <Trading />
+        </DetailLayout>
       </DetailContainer>
-    </HomeLayout>
+    </PageLayout>
   );
 };
 export default Home;

@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
+import { Pool } from "ui/view/Pool";
 
 const PoolPage: NextPage = () => {
-  return <h1>PoolPage</h1>;
+  return <Pool></Pool>;
 };
 
 export default PoolPage;

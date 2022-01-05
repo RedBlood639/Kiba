@@ -5,7 +5,7 @@ export const PageLayout = styled.div`
   display: flex;
 `;
 
-export const LeaderboardContainer = styled.div`
+export const PoolListContainer = styled.div`
   display: flex;
   width: 65%;
   background: #1a1b23;
@@ -20,15 +20,15 @@ export const DetailContainer = styled.div`
   flex-direction: column;
 `;
 
-export const LeaderboardHeader = styled.div`
+export const PoolListHeader = styled.div`
   display: flex;
   justify-content: flex-start;
   width: 100%;
 `;
-export const LeaderboardLayout = styled.div`
+export const PoolListLayout = styled.div`
   margin-top: 65px;
   margin-left: 61px;
-  margin-right: 61px;
+  margin-right: 24px;
 `;
 
 export const DetailHeader = styled.div`

@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
+import { Develop } from "ui/view/Develop";
 
 const DevelopPage: NextPage = () => {
-  return <h1>DevelopPage</h1>;
+  return <Develop />;
 };
 
 export default DevelopPage;
