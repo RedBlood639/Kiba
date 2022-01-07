@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 export const Layout = styled.div`
   display: flex;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const ChartContainer = styled.div`
@@ -46,13 +49,16 @@ export const DetailLayout = styled.div`
   margin: 76px 37px 0px 37px;
 `;
 export const MobileLayout = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background: #1a1b23;
-  min-height: calc(100vh - 64px);
-  align-items: center;
-  padding-bottom: 84px;
+  display: none;
+  @media screen and (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #1a1b23;
+    min-height: calc(100vh - 64px);
+    align-items: center;
+    padding-bottom: 84px;
+  }
 `;
 export const MobileChartContainer = styled.div`
   margin-top: 30px;

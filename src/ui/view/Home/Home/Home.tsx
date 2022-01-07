@@ -31,41 +31,38 @@ const Home = () => {
   });
   return (
     <>
-      {isDesktopOrLaptop ? (
-        <Layout>
-          <ChartContainer>
-            <ChartHeader>
-              <Menu />
-            </ChartHeader>
-            <ChartLayout>
-              <ChartContain></ChartContain>
-            </ChartLayout>
-          </ChartContainer>
-          <DetailContainer>
-            <DetailHeader>
-              <WalletConnectMenu />
-            </DetailHeader>
-            <DetailLayout>
-              <CardChange></CardChange>
-            </DetailLayout>
-          </DetailContainer>
-        </Layout>
-      ) : (
-        <MobileLayout>
-          <MobileHeader>
-            <MobileMenu />
-          </MobileHeader>
-          <MobileChartContainer>
+      <Layout>
+        <ChartContainer>
+          <ChartHeader>
+            <Menu />
+          </ChartHeader>
+          <ChartLayout>
             <ChartContain></ChartContain>
-          </MobileChartContainer>
-          <MobileDetailContainer>
+          </ChartLayout>
+        </ChartContainer>
+        <DetailContainer>
+          <DetailHeader>
+            <WalletConnectMenu />
+          </DetailHeader>
+          <DetailLayout>
             <CardChange></CardChange>
-          </MobileDetailContainer>
-          <MobileFooter>
-            <FooterMenu></FooterMenu>
-          </MobileFooter>
-        </MobileLayout>
-      )}
+          </DetailLayout>
+        </DetailContainer>
+      </Layout>
+      <MobileLayout>
+        <MobileHeader>
+          <MobileMenu />
+        </MobileHeader>
+        <MobileChartContainer>
+          <ChartContain></ChartContain>
+        </MobileChartContainer>
+        <MobileDetailContainer>
+          <CardChange></CardChange>
+        </MobileDetailContainer>
+        <MobileFooter>
+          <FooterMenu></FooterMenu>
+        </MobileFooter>
+      </MobileLayout>
     </>
   );
 };
