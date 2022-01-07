@@ -11,3 +11,20 @@ export const ItemGroup = styled.div`
   display: flex;
   height: 64px;
 `;
+
+export const LogoDefault = styled.div`
+  display: block;
+  min-width: 146px;
+  min-height: 66px;
+  @media screen and (max-width: 1100px) {
+    display: none;
+  }
+`;
+export const Logo = styled.div`
+  display: none;
+  min-width: 66px;
+  min-height: 66px;
+  @media screen and (max-width: 1100px) {
+    display: block;
+  }
+`;

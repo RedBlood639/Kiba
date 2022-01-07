@@ -7,3 +7,6 @@ export const MenuItem_Dropdown = dynamic(
 export const MenuItem_Normal = dynamic(
   () => import("./Normal/MenuItem_Normal")
 );
+export const MenuItem_Footer = dynamic(
+  () => import("./Footer/MenuItem_Footer")
+);

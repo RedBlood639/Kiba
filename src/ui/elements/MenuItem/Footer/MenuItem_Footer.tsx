@@ -1,14 +1,8 @@
 import React, { useState } from "react";
 
-import {
-  MenuItemLayout,
-  IconLayout,
-  ItemLayout,
-} from "./MenuItem_Normal.styled";
+import { MenuItemLayout, ItemLayout } from "./MenuItem_Footer.styled";
 
-import { Dropdown } from "assets/icon";
-
-import { SubMenu } from "ui/templates/Menu";
+import { MobileSubMenu } from "ui/templates/Menu";
 
 import { MenuItemData } from "Types/components/Menu";
 
@@ -36,17 +30,8 @@ const MenuItem_Normal: React.FC<{
     >
       <ItemLayout hover={show} active={active == index + 1 ? true : false}>
         {menuItem.title}
-        {menuItem.dropdown ? (
-          <>
-            <IconLayout>
-              <Dropdown iSize={{ x: 8, y: 4 }} />
-            </IconLayout>
-          </>
-        ) : (
-          <></>
-        )}
       </ItemLayout>
-      <SubMenu subMenuItems={menuItem.subMenuItems} hoverItem={show} />
+      <MobileSubMenu subMenuItems={menuItem.subMenuItems} hoverItem={show} />
     </MenuItemLayout>
   );
 };

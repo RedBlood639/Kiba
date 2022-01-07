@@ -10,6 +10,13 @@ export const MenuLayout_dropdown = styled.div`
   &:hover {
     background-color: #353546;
   }
+  @media screen and (max-width: 1024px) {
+    width: 250px;
+  }
+  @media screen and (max-width: 500px) {
+    width: 200px;
+    padding: 16px 5px;
+  }
 `;
 
 export const Grid_Item = styled.div`
@@ -41,4 +48,7 @@ export const Grid_detailItem = styled.div<{ itemHover: boolean }>`
   line-height: 24px;
   font-feature-settings: "pnum" on, "lnum" on;
   color: ${(props) => (!props.itemHover ? "#8b8ca7" : " #FDFDFF")};
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 `;

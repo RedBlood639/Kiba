@@ -11,6 +11,9 @@ export const DetailDiv = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 96px;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 export const PriceText = styled.div`
   margin-top: 26px;
@@ -49,6 +52,9 @@ export const StateText = styled.div`
 export const TimeRangesLayout = styled.div`
   display: flex;
   color: white;
+  @media screen and (max-width: 500px) {
+    margin-top: 20px;
+  }
 `;
 export const TimeRange = styled.div`
   display: flex;

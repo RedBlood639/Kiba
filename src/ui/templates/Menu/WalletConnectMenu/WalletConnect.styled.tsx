@@ -8,7 +8,14 @@ export const WalletConnectMenuLayout = styled.div`
   height: 40px;
   margin: 12px 60px 12px 0px;
   justify-content: space-between;
+  @media screen and (max-width: 500px) {
+    width: fit-content;
+    margin: 0px 0px 0px 20px;
+  }
 `;
 export const IconLayout = styled.div`
   margin: 5px;
+  @media screen and (max-width: 450px) {
+    display: none;
+  }
 `;

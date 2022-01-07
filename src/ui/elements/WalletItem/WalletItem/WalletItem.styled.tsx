@@ -6,7 +6,7 @@ export const WalletItemLayout = styled.div`
   display: flex;
   padding: 16px;
   align-items: center;
-  width: 342px;
+  width: 100%;
   height: 72px;
   background: #2c2d3a;
   border-radius: 16px;

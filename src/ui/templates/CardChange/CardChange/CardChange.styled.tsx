@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const CardChangeLayout = styled.div`
   display: flex;
   flex-direction: column;
-  height: 601px;
+  min-height: 601px;
   background: #2c2d3a;
   border-radius: 24px;
   padding: 24px;
@@ -86,6 +86,10 @@ export const SplitLine = styled.div`
 export const TextDetail = styled.div`
   display: flex;
   justify-content: space-between;
+  @media screen and (max-width: 370px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 export const Row = styled.div`
   display: flex;
@@ -304,7 +308,7 @@ export const EtherscanButton = styled.div`
   line-height: 24px;
   font-feature-settings: "pnum" on, "lnum" on;
   color: #ffffff;
-  width: 342px;
+  width: 90%;
   height: 52px;
   margin-top: 16px;
 `;

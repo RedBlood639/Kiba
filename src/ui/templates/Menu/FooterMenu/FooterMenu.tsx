@@ -1,21 +1,10 @@
 import React, { useState } from "react";
-import Image from "next/image";
-import { useRouter } from "hooks";
-import {
-  MenuLayout,
-  LogoLayout,
-  ItemGroup,
-  LogoDefault,
-  Logo,
-} from "./Menu.styled";
+import { MenuLayout, ItemGroup } from "./FooterMenu.styled";
 
-import { MenuItem_Normal } from "ui/elements/MenuItem";
+import { MenuItem_Footer } from "ui/elements/MenuItem";
 import { MenuItemData } from "Types/components/Menu";
 
 import { Header } from "assets/icon";
-
-import LogoDefaultImage from "assets/img/logoDefault.png";
-import LogoImage from "assets/img/logo.png";
 
 const MenuData: MenuItemData[] = [
   { title: "Stake", dropdown: false, subMenuItems: [], router: "stake" },
@@ -73,33 +62,21 @@ const MenuData: MenuItemData[] = [
 ];
 
 const Menu = () => {
-  const { move } = useRouter();
   const [active, setActive] = useState(0);
   return (
     <MenuLayout>
-      <LogoLayout
-        onClick={() => {
-          move("/");
-          setActive(0);
-        }}
-      >
-        <LogoDefault>
-          <Image src={LogoDefaultImage.src} width={146} height={66} alt="" />
-        </LogoDefault>
-        <Logo>
-          <Image src={LogoImage.src} width={66} height={66} alt="" />
-        </Logo>
-      </LogoLayout>
       <ItemGroup>
+        <div></div>
         {MenuData.map((Item, index) => (
-          <MenuItem_Normal
+          <MenuItem_Footer
             key={`MenuItem_${index}`}
             index={index}
             menuItem={Item}
             active={active}
             getActive={setActive}
-          ></MenuItem_Normal>
+          ></MenuItem_Footer>
         ))}
+        <div></div>
       </ItemGroup>
     </MenuLayout>
   );

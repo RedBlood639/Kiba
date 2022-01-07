@@ -8,6 +8,11 @@ import {
   DetailHeader,
   DetailLayout,
   TableLayout,
+  MobileLayout,
+  MobileHeader,
+  MobileFooter,
+  MobileChartContainer,
+  MobileDetailContainer,
 } from "./Stake.styled";
 
 import { ChartContain } from "ui/templates/ChartContain";
@@ -18,6 +23,9 @@ import { Menu } from "ui/templates/Menu";
 import { WalletConnectMenu } from "ui/templates/Menu";
 import { CardChange } from "ui/templates/CardChange";
 import { TableData } from "Types/components/Table";
+import { useMediaQuery } from "react-responsive";
+import { MobileMenu } from "ui/templates/Menu";
+import { FooterMenu } from "ui/templates/Menu";
 
 const TableDatas: TableData[] = [
   {
@@ -43,28 +51,51 @@ const TableDatas: TableData[] = [
 ];
 
 const Stake = () => {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 1024px)",
+  });
   return (
-    <StakeLayout>
-      <ChartContainer>
-        <ChartHeader>
-          <Menu />
-        </ChartHeader>
-        <ChartLayout>
-          <ChartContain></ChartContain>
-        </ChartLayout>
-        <TableLayout>
-          <OrderTable tableData={TableDatas} />
-        </TableLayout>
-      </ChartContainer>
-      <DetailContainer>
-        <DetailHeader>
-          <WalletConnectMenu />
-        </DetailHeader>
-        <DetailLayout>
-          <CardChange></CardChange>
-        </DetailLayout>
-      </DetailContainer>
-    </StakeLayout>
+    <>
+      {isDesktopOrLaptop ? (
+        <StakeLayout>
+          <ChartContainer>
+            <ChartHeader>
+              <Menu />
+            </ChartHeader>
+            <ChartLayout>
+              <ChartContain></ChartContain>
+            </ChartLayout>
+            <TableLayout>
+              <OrderTable tableData={TableDatas} />
+            </TableLayout>
+          </ChartContainer>
+          <DetailContainer>
+            <DetailHeader>
+              <WalletConnectMenu />
+            </DetailHeader>
+            <DetailLayout>
+              <CardChange></CardChange>
+            </DetailLayout>
+          </DetailContainer>
+        </StakeLayout>
+      ) : (
+        <MobileLayout>
+          <MobileHeader>
+            <MobileMenu />
+          </MobileHeader>
+          <MobileChartContainer>
+            <ChartContain></ChartContain>
+            <OrderTable tableData={TableDatas} />
+          </MobileChartContainer>
+          <MobileDetailContainer>
+            <CardChange></CardChange>
+          </MobileDetailContainer>
+          <MobileFooter>
+            <FooterMenu></FooterMenu>
+          </MobileFooter>
+        </MobileLayout>
+      )}
+    </>
   );
 };
 export default Stake;

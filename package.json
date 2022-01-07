@@ -24,6 +24,8 @@
     "react-dom": "17.0.2",
     "react-modal": "^3.14.4",
     "react-redux": "^7.2.6",
+    "react-responsive": "^9.0.0-beta.5",
+    "react-responsive-hooks": "^1.0.1",
     "react-router-dom": "^6.2.1",
     "react-switch": "^6.0.0",
     "recharts": "^2.1.8",

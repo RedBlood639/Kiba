@@ -36,6 +36,9 @@ export const ConnectButton = styled.button`
   font-feature-settings: "pnum" on, "lnum" on;
   color: #ffffff;
   margin-left: 16px;
+  @media screen and (max-width: 375px) {
+    width: 136px;
+  }
 `;
 export const IconLayout = styled.div`
   display: flex;

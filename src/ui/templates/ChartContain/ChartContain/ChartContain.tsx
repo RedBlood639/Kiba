@@ -10,7 +10,7 @@ import {
   TimeRange,
 } from "./ChartContain.styled";
 import { CoinChange } from "ui/elements/CoinChange";
-import { AreaChart, XAxis, Tooltip, Area } from "recharts";
+import { AreaChart, XAxis, Tooltip, Area, ResponsiveContainer } from "recharts";
 
 const ChartContain = () => {
   const data = [
@@ -70,26 +70,36 @@ const ChartContain = () => {
           <TimeRange>1M</TimeRange>
         </TimeRangesLayout>
       </DetailDiv>
-      <AreaChart width={841} height={293.5} data={data}>
-        <defs>
-          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="rgb(83, 243, 195)" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="rgb(83, 243, 195)" stopOpacity={0} />
-          </linearGradient>
-        </defs>
-        <XAxis dataKey="name" />
-        {/* <YAxis /> */}
-        {/* <CartesianGrid strokeDasharray="3 3" /> */}
-        <Tooltip />
+      <ResponsiveContainer width="100%" height={293.5}>
+        <AreaChart data={data}>
+          <defs>
+            <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+              <stop
+                offset="5%"
+                stopColor="rgb(83, 243, 195)"
+                stopOpacity={0.8}
+              />
+              <stop
+                offset="95%"
+                stopColor="rgb(83, 243, 195)"
+                stopOpacity={0}
+              />
+            </linearGradient>
+          </defs>
+          <XAxis dataKey="name" />
+          {/* <YAxis /> */}
+          {/* <CartesianGrid strokeDasharray="3 3" /> */}
+          <Tooltip />
 
-        <Area
-          type="monotone"
-          dataKey="pv"
-          stroke="#82ca9d"
-          fillOpacity={1}
-          fill="url(#colorPv)"
-        />
-      </AreaChart>
+          <Area
+            type="monotone"
+            dataKey="pv"
+            stroke="#82ca9d"
+            fillOpacity={1}
+            fill="url(#colorPv)"
+          />
+        </AreaChart>
+      </ResponsiveContainer>
     </ChartLayout>
   );
 };
