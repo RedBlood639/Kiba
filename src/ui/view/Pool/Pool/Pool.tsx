@@ -7,6 +7,11 @@ import {
   DetailContainer,
   DetailHeader,
   DetailLayout,
+  MobileLayout,
+  MobileHeader,
+  MobileFooter,
+  MobileChartContainer,
+  MobileDetailContainer,
 } from "./Pool.styled";
 
 import { Menu } from "ui/templates/Menu";
@@ -16,6 +21,9 @@ import { PoolAnalysis } from "ui/templates/PoolAnalysis";
 
 import { PoolListData } from "Types/components/PoolList";
 import { BUSD, FTR, USDC, Inch } from "assets/icon";
+import { MobileMenu } from "ui/templates/Menu";
+import { FooterMenu } from "ui/templates/Menu";
+
 const dataList: PoolListData[] = [
   {
     address: "0xBAD7...E116",
@@ -69,24 +77,40 @@ const dataList: PoolListData[] = [
 
 const Home = () => {
   return (
-    <PageLayout>
-      <PoolListContainer>
-        <PoolListHeader>
-          <Menu />
-        </PoolListHeader>
-        <PoolListLayout>
+    <>
+      <PageLayout>
+        <PoolListContainer>
+          <PoolListHeader>
+            <Menu />
+          </PoolListHeader>
+          <PoolListLayout>
+            <PoolTable tableData={dataList}></PoolTable>
+          </PoolListLayout>
+        </PoolListContainer>
+        <DetailContainer>
+          <DetailHeader>
+            <WalletConnectMenu />
+          </DetailHeader>
+          <DetailLayout>
+            <PoolAnalysis />
+          </DetailLayout>
+        </DetailContainer>
+      </PageLayout>
+      <MobileLayout>
+        <MobileHeader>
+          <MobileMenu />
+        </MobileHeader>
+        <MobileChartContainer>
           <PoolTable tableData={dataList}></PoolTable>
-        </PoolListLayout>
-      </PoolListContainer>
-      <DetailContainer>
-        <DetailHeader>
-          <WalletConnectMenu />
-        </DetailHeader>
-        <DetailLayout>
+        </MobileChartContainer>
+        <MobileDetailContainer>
           <PoolAnalysis />
-        </DetailLayout>
-      </DetailContainer>
-    </PageLayout>
+        </MobileDetailContainer>
+        <MobileFooter>
+          <FooterMenu></FooterMenu>
+        </MobileFooter>
+      </MobileLayout>
+    </>
   );
 };
 export default Home;

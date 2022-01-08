@@ -12,6 +12,10 @@ export const CoinSelectorLayout = styled.div`
   box-sizing: border-box;
   border-radius: 16px;
   padding: 16px 22px;
+  @media screen and (max-width: 400px) {
+    max-width: 174px;
+    padding: 16px 10px;
+  }
 `;
 
 type MarginDiv = {
@@ -27,6 +31,10 @@ export const MarginDiv = styled.div<MarginDiv>`
   margin-right: ${(props) => (props.right ? props.right : 0)}px;
   display: flex;
   align-items: center;
+  @media screen and (max-width: 400px) {
+    margin-left: ${(props) => (props.left ? props.left - 10 : 0)}px;
+    margin-right: ${(props) => (props.right ? props.right - 10 : 0)}px;
+  }
 `;
 type TextProps = {
   color: string;

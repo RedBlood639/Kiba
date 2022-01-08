@@ -11,11 +11,20 @@ import {
   MyvFTR,
   Membership,
   IconLayout,
+  MobileHeader,
+  MobileFooter,
+  ContentLayout,
+  TextGroup,
+  Content,
+  Detail,
 } from "./Vftr.styled";
 
 import { Menu } from "ui/templates/Menu";
 import { WalletConnectMenu } from "ui/templates/Menu";
 import { Help } from "assets/icon";
+import { MobileMenu } from "ui/templates/Menu";
+import { FooterMenu } from "ui/templates/Menu";
+
 const Vftr = () => {
   return (
     <PageLayout>
@@ -23,6 +32,9 @@ const Vftr = () => {
         <Menu />
         <WalletConnectMenu />
       </Header>
+      <MobileHeader>
+        <MobileMenu />
+      </MobileHeader>
       <Container>
         <Text
           color="white"
@@ -30,11 +42,20 @@ const Vftr = () => {
           size={48}
           lineHeight={56}
           weight="bold"
+          number={[768, 425]}
+          responsive={[{ size: 38 }, { size: 35 }]}
         >
           vFTR Membership
         </Text>
         <MarginDiv top={24} bottom={8}>
-          <Text color="white" size={18} lineHeight={28} weight="600">
+          <Text
+            color="white"
+            size={18}
+            lineHeight={28}
+            weight="600"
+            number={[]}
+            responsive={[]}
+          >
             Your Real-Time APY
           </Text>
         </MarginDiv>
@@ -44,6 +65,8 @@ const Vftr = () => {
           size={48}
           lineHeight={56}
           weight="bold"
+          number={[]}
+          responsive={[]}
         >
           130.92%
         </Text>
@@ -56,8 +79,8 @@ const Vftr = () => {
           </Row>
         </MarginDiv>
         <MarginDiv top={64}>
-          <Row>
-            <Col>
+          <ContentLayout>
+            <TextGroup>
               <Row between={16}>
                 <Text
                   color="white"
@@ -68,6 +91,8 @@ const Vftr = () => {
                   background="#23242F"
                   radius={16}
                   padding="16px"
+                  number={[]}
+                  responsive={[]}
                 >
                   3
                 </Text>
@@ -80,6 +105,8 @@ const Vftr = () => {
                   background="#23242F"
                   radius={16}
                   padding="16px"
+                  number={[]}
+                  responsive={[]}
                 >
                   2
                 </Text>
@@ -92,6 +119,8 @@ const Vftr = () => {
                   background="#23242F"
                   radius={16}
                   padding="16px"
+                  number={[]}
+                  responsive={[]}
                 >
                   6
                 </Text>
@@ -104,94 +133,217 @@ const Vftr = () => {
                   background="#23242F"
                   radius={16}
                   padding="16px"
+                  number={[]}
+                  responsive={[]}
                 >
                   0
                 </Text>
               </Row>
-              <Text color="white" size={14} weight="600" width={268}>
+              <Text
+                color="white"
+                size={14}
+                weight="600"
+                width={268}
+                number={[768]}
+                responsive={[{ center: true }]}
+              >
                 People have already become vFTR members
               </Text>
-            </Col>
-            <MyvFTR>
-              <Text color="#0177FB" weight="bold" size={24} lineHeight={36}>
-                0
-              </Text>
-              <Row>
-                <Text color="white" weight="600" size={14}>
-                  My vFTR
+            </TextGroup>
+            <Content>
+              <MyvFTR>
+                <Text
+                  color="#0177FB"
+                  weight="bold"
+                  size={24}
+                  lineHeight={36}
+                  number={[]}
+                  responsive={[]}
+                >
+                  0
                 </Text>
-                <IconLayout>
-                  <Help iSize={{ x: 16, y: 16 }}></Help>
-                </IconLayout>
-              </Row>
-            </MyvFTR>
-            <Membership>
-              <Text color="#0177FB" weight="bold" size={24} lineHeight={36}>
-                -
-              </Text>
-              <Text color="white" weight="600" size={14}>
-                Membership Rewards · vFTR
-              </Text>
-            </Membership>
-          </Row>
+                <Row>
+                  <Text
+                    color="white"
+                    weight="600"
+                    size={14}
+                    number={[]}
+                    responsive={[]}
+                  >
+                    My vFTR
+                  </Text>
+                  <IconLayout>
+                    <Help iSize={{ x: 16, y: 16 }}></Help>
+                  </IconLayout>
+                </Row>
+              </MyvFTR>
+              <Membership>
+                <Text
+                  color="#0177FB"
+                  weight="bold"
+                  size={24}
+                  lineHeight={36}
+                  number={[]}
+                  responsive={[]}
+                >
+                  -
+                </Text>
+                <Text
+                  color="white"
+                  weight="600"
+                  size={14}
+                  number={[]}
+                  responsive={[]}
+                >
+                  Membership Rewards · vFTR
+                </Text>
+              </Membership>
+            </Content>
+          </ContentLayout>
         </MarginDiv>
         <MarginDiv top={40}>
-          <Row between={24}>
-            <Col width={403} padding="16px">
+          <Detail>
+            <Col
+              width={403}
+              padding="16px"
+              number={[450]}
+              responsive={[{ width: 320 }]}
+            >
               <Row space={true}>
-                <Text size={16} weight="600" color="white">
+                <Text
+                  size={16}
+                  weight="600"
+                  color="white"
+                  number={[]}
+                  responsive={[]}
+                >
                   Referrals
                 </Text>
-                <Text size={16} weight="600" color="#0177FB">
+                <Text
+                  size={16}
+                  weight="600"
+                  color="#0177FB"
+                  number={[]}
+                  responsive={[]}
+                >
                   +0
                 </Text>
               </Row>
               <Row right={true}>
-                <Text size={14} weight="normal" color="#8B8CA7">
+                <Text
+                  size={14}
+                  weight="normal"
+                  color="#8B8CA7"
+                  number={[]}
+                  responsive={[]}
+                >
                   vDEX/month
                 </Text>
               </Row>
             </Col>
-            <Col width={403} padding="24px" between={16}>
-              <Text weight="600" size={16} color="white">
+            <Col
+              width={403}
+              padding="24px"
+              between={16}
+              number={[450]}
+              responsive={[{ width: 320 }]}
+            >
+              <Text
+                weight="600"
+                size={16}
+                color="white"
+                number={[]}
+                responsive={[]}
+              >
                 vFTR Stats
               </Text>
               <Row space={true}>
-                <Text color="white" size={14} weight="normal">
+                <Text
+                  color="white"
+                  size={14}
+                  weight="normal"
+                  number={[]}
+                  responsive={[]}
+                >
                   Number of FTR Staked
                 </Text>
-                <Text color="white" size={14} weight="normal">
+                <Text
+                  color="white"
+                  size={14}
+                  weight="normal"
+                  number={[]}
+                  responsive={[]}
+                >
                   20,880,161.53
                 </Text>
               </Row>
               <Row space={true}>
-                <Text color="white" size={14} weight="normal">
+                <Text
+                  color="white"
+                  size={14}
+                  weight="normal"
+                  number={[]}
+                  responsive={[]}
+                >
                   vFTR Minted
                 </Text>
-                <Text color="white" size={14} weight="normal">
+                <Text
+                  color="white"
+                  size={14}
+                  weight="normal"
+                  number={[]}
+                  responsive={[]}
+                >
                   208,801.61
                 </Text>
               </Row>
               <Row space={true}>
-                <Text color="white" size={14} weight="normal">
+                <Text
+                  color="white"
+                  size={14}
+                  weight="normal"
+                  number={[]}
+                  responsive={[]}
+                >
                   Current Exit Fee Rate
                 </Text>
-                <Text color="white" size={14} weight="normal">
+                <Text
+                  color="white"
+                  size={14}
+                  weight="normal"
+                  number={[]}
+                  responsive={[]}
+                >
                   8.61%
                 </Text>
               </Row>
               <Row space={true}>
-                <Text color="white" size={14} weight="normal">
+                <Text
+                  color="white"
+                  size={14}
+                  weight="normal"
+                  number={[]}
+                  responsive={[]}
+                >
                   Exit membership fee income(vFTR)
                 </Text>
-                <Text weight="600" size={16} color="#0177FB">
+                <Text
+                  weight="600"
+                  size={16}
+                  color="#0177FB"
+                  number={[]}
+                  responsive={[]}
+                >
                   5,259.43
                 </Text>
               </Row>
             </Col>
-          </Row>
+          </Detail>
         </MarginDiv>
       </Container>
+      <MobileFooter>
+        <FooterMenu />
+      </MobileFooter>
     </PageLayout>
   );
 };

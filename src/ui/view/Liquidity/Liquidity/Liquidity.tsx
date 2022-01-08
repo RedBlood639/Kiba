@@ -11,6 +11,12 @@ import {
   ModalText,
   ModalTitle,
   ModalButton,
+  MobileLayout,
+  MobileHeader,
+  MobileFooter,
+  MobileChartContainer,
+  MobileDetailContainer,
+  MobileTableLayout,
 } from "./Liquidity.styled";
 import Modal from "react-modal";
 import { Menu } from "ui/templates/Menu";
@@ -19,6 +25,8 @@ import { LiquidityTable } from "ui/templates/LiquidityTable";
 import { LiquidityTableData } from "Types/components/Table";
 import { Eth, USDC, Usdt, Dai, Binance, Inch } from "assets/icon";
 import { LiquidityDetail } from "ui/templates/LiquidityDetail";
+import { MobileMenu } from "ui/templates/Menu";
+import { FooterMenu } from "ui/templates/Menu";
 
 const tableData: LiquidityTableData[] = [
   {
@@ -76,58 +84,77 @@ const Liquidity = () => {
       left: "50%",
       right: "auto",
       bottom: "auto",
-      width: "390px",
+      width: "320px",
       height: "537px",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
       padding: "24px",
       background: "#23242F",
       borderRadius: "24px",
-      overflow: "auto",
+      overflow: "hidden",
       outline: "none",
     },
     overlay: {
       backgroundColor: "rgba(0, 0, 0, 0.5)",
+      zIndex: 1000,
     },
   };
   return (
-    <LiquidityLayout>
-      <Modal
-        isOpen={StartModalOpen}
-        contentLabel="ChooseWallet"
-        style={customStyles}
-        ariaHideApp={false}
-      >
-        <ModalLayout>
-          <ModalTitle>Risk Disclaimer</ModalTitle>
-          <ModalText>
-            Market making and liquidity provision involve risk of loss and are
-            not suitable for every user. The valuation and prices of token
-            assets may fluctuate substantially, and, as a result, users may see
-            profits that are below expectations, or even sustain losses.
-          </ModalText>
-          <ModalButton onClick={() => setStartModalOpen(false)}>
-            Continue
-          </ModalButton>
-        </ModalLayout>
-      </Modal>
-      <LiquidityContainer>
-        <LiquidityHeader>
-          <Menu />
-        </LiquidityHeader>
-        <LiquidityTableLayout>
-          <LiquidityTable tableData={tableData}></LiquidityTable>
-        </LiquidityTableLayout>
-      </LiquidityContainer>
-      <DetailContainer>
-        <DetailHeader>
-          <WalletConnectMenu />
-        </DetailHeader>
-        <DetailLayout>
+    <>
+      <LiquidityLayout>
+        <Modal
+          isOpen={StartModalOpen}
+          contentLabel="ChooseWallet"
+          style={customStyles}
+          ariaHideApp={false}
+        >
+          <ModalLayout>
+            <ModalTitle>Risk Disclaimer</ModalTitle>
+            <ModalText>
+              Market making and liquidity provision involve risk of loss and are
+              not suitable for every user. The valuation and prices of token
+              assets may fluctuate substantially, and, as a result, users may
+              see profits that are below expectations, or even sustain losses.
+            </ModalText>
+            <ModalButton onClick={() => setStartModalOpen(false)}>
+              Continue
+            </ModalButton>
+          </ModalLayout>
+        </Modal>
+        <LiquidityContainer>
+          <LiquidityHeader>
+            <Menu />
+          </LiquidityHeader>
+          <LiquidityTableLayout>
+            <LiquidityTable tableData={tableData}></LiquidityTable>
+          </LiquidityTableLayout>
+        </LiquidityContainer>
+        <DetailContainer>
+          <DetailHeader>
+            <WalletConnectMenu />
+          </DetailHeader>
+          <DetailLayout>
+            <LiquidityDetail />
+          </DetailLayout>
+        </DetailContainer>
+      </LiquidityLayout>
+      <MobileLayout>
+        <MobileHeader>
+          <MobileMenu />
+        </MobileHeader>
+        <MobileChartContainer>
+          <MobileTableLayout>
+            <LiquidityTable tableData={tableData}></LiquidityTable>
+          </MobileTableLayout>
+        </MobileChartContainer>
+        <MobileDetailContainer>
           <LiquidityDetail />
-        </DetailLayout>
-      </DetailContainer>
-    </LiquidityLayout>
+        </MobileDetailContainer>
+        <MobileFooter>
+          <FooterMenu></FooterMenu>
+        </MobileFooter>
+      </MobileLayout>
+    </>
   );
 };
 export default Liquidity;

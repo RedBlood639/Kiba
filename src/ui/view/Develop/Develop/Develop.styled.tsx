@@ -88,10 +88,18 @@ export const Col = styled.div<ColProps>`
 export const PageLayout = styled.div`
   background: #1a1b23;
   min-height: 100vh;
+  padding-bottom: 20px;
+  @media screen and (max-width: 1024px) {
+    min-height: calc(100vh - 64px);
+    padding-bottom: 84px;
+  }
 `;
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 `;
 export const Container = styled.div`
   display: flex;
@@ -101,12 +109,17 @@ export const Container = styled.div`
   margin-right: 61px;
   flex-direction: column;
   align-items: flex-start;
+  @media screen and (max-width: 768px) {
+    margin-left: 31px;
+    margin-right: 31px;
+  }
+  @media screen and (max-width: 425px) {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 `;
-type ButtonItemProps = {
-  width?: number;
-};
-export const ButtonItem = styled.div<ButtonItemProps>`
-  ${(props) => (props.width ? `width: ${props.width}px;` : "")};
+export const ButtonItem1 = styled.div`
+  width: 220px;
   height: 56px;
   display: flex;
   justify-content: center;
@@ -121,6 +134,38 @@ export const ButtonItem = styled.div<ButtonItemProps>`
   text-align: center;
   font-feature-settings: "pnum" on, "lnum" on;
   color: #ffffff;
+
+  @media screen and (max-width: 768px) {
+    width: 180px;
+    height: 48px;
+    font-weight: 600;
+  }
+  @media screen and (max-width: 425px) {
+    width: 150px;
+    height: 40px;
+    font-size: 15px;
+  }
+`;
+
+export const ButtonItem2 = styled.div`
+  width: 341px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  background: #e33319;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  font-feature-settings: "pnum" on, "lnum" on;
+  color: #ffffff;
+  @media screen and (max-width: 425px) {
+    width: 240px;
+  }
 `;
 
 export const IconLayout = styled.div`
@@ -135,6 +180,12 @@ export const SearchBar = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  @media screen and (max-width: 768px) {
+    width: 350px;
+  }
+  @media screen and (max-width: 522px) {
+    width: 290px;
+  }
 `;
 export const SearchInput = styled.input`
   background: rgba(0, 0, 0, 0);
@@ -194,4 +245,38 @@ export const ContentItem = styled.div`
   display: flex;
   flex-direction: column;
   padding: 16px;
+`;
+export const MobileFooter = styled.div`
+  display: none;
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    position: fixed;
+    height: 64px;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1a1b23;
+    box-shadow: 0px 0px 3px 0px #434a7e;
+    z-index: 10;
+  }
+`;
+export const MobileHeader = styled.div`
+  display: none;
+  @media screen and (max-width: 1024px) {
+    display: block;
+    width: 100%;
+  }
+`;
+export const TableLayout = styled.div`
+  width: 100%;
+  @media screen and (max-width: 674px) {
+    overflow-x: scroll;
+  }
+`;
+export const ContentItemGroup = styled.div`
+  display: flex;
+  @media screen and (max-width: 457px) {
+    flex-direction: column;
+  }
 `;

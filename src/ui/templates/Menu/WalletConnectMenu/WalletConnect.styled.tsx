@@ -10,7 +10,7 @@ export const WalletConnectMenuLayout = styled.div`
   justify-content: space-between;
   @media screen and (max-width: 500px) {
     width: fit-content;
-    margin: 0px 0px 0px 20px;
+    margin: 0px 0px 0px 10px;
   }
 `;
 export const IconLayout = styled.div`

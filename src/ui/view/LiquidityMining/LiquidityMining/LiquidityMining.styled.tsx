@@ -1,5 +1,7 @@
 // styled system
+import { responsive } from "@styled-system/css";
 import styled from "styled-components";
+import { fontSize } from "styled-system";
 
 type MarginDiv = {
   top?: number;
@@ -17,23 +19,65 @@ export const MarginDiv = styled.div<MarginDiv>`
   align-items: center;
 `;
 type TextProps = {
+  color?: string;
+  size?: number;
+  weight?: string;
+  under?: boolean;
+  font?: string;
+  lineHeight?: number;
+};
+type TextResponsive = {
   color: string;
   size: number;
   weight: string;
   under?: boolean;
   font?: string;
   lineHeight?: number;
+  number: number[];
+  responsive: TextProps[];
 };
-export const Text = styled.div<TextProps>`
+export const Text = styled.div<TextResponsive>`
   color: ${(props) => props.color};
   font-size: ${(props) => props.size}px;
   font-weight: ${(props) => props.weight};
   ${(props) => (props.under ? "text-decoration-line: underline;" : "")};
   font-family: ${(props) => (props.font ? props.font : "Poppins")};
-  font-style: normal;
   line-height: ${(props) => (props.lineHeight ? props.lineHeight : 24)}px;
   font-feature-settings: "pnum" on, "lnum" on;
+  font-style: normal;
   text-align: left;
+  ${(props) =>
+    props.number
+      ? props.responsive
+        ? props.number.map((Item, index) => {
+            let resstyle = "";
+            let responsive = props.responsive[index];
+            resstyle += `@media screen and (max-width:${Item}px){`;
+            resstyle += `${
+              responsive.color ? `color: ${responsive.color}` : ""
+            };`;
+            resstyle += `${
+              responsive.size ? `font-size: ${responsive.size}px` : ""
+            };`;
+            resstyle += `${
+              responsive.weight ? `font-weight: ${responsive.weight}` : ""
+            };`;
+            resstyle += `${
+              responsive.under ? "text-decoration-line: underline;" : ""
+            }`;
+            resstyle += `${
+              responsive.font ? `font-family: ${responsive.font}` : ""
+            };`;
+            resstyle += `${
+              responsive.lineHeight
+                ? `line-height: ${responsive.lineHeight}px;`
+                : ""
+            };`;
+            resstyle += "};";
+            return resstyle;
+          })
+        : ""
+      : ""};
 `;
 type RowProps = {
   space?: boolean;
@@ -56,30 +100,46 @@ export const Col = styled.div`
 export const PageLayout = styled.div`
   background: #1a1b23;
   min-height: 100vh;
+  @media screen and (max-width: 1024px) {
+    max-height: calc(100vh - 64px);
+  }
 `;
 export const Header = styled.div`
   display: flex;
-
   justify-content: space-between;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 `;
-export const Container = styled.div``;
+export const MobileHeader = styled.div`
+  display: none;
+  @media screen and (max-width: 1024px) {
+    display: block;
+    width: 100%;
+  }
+`;
 export const SearchPoolLayout = styled.div`
+  width: 100%;
   margin-top: 63px;
-  margin-left: 183px;
+  margin-left: 12%;
   display: flex;
   flex-direction: column;
   & > *:not(:last-child) {
     margin-bottom: 8px;
   }
+  @media screen and (max-width: 768px) {
+    margin-left: 8%;
+  }
+  @media screen and (max-width: 600px) {
+    margin-left: 5%;
+  }
 `;
 export const PoolListLayout = styled.div`
-  width: 100%;
   margin-top: 64px;
-  padding: 40px 184px 0px 182px;
   background: #23242f;
-  box-shadow: 0px -24px 16px rgba(30, 30, 42, 0.08);
   border-radius: 24px 24px 0px 0px;
-  min-height: 1072px;
+  padding-bottom: 84px;
+  padding-top: 40px;
 `;
 
 export const PoolSearch = styled.div`
@@ -89,6 +149,15 @@ export const PoolSearch = styled.div`
   box-sizing: border-box;
   border-radius: 16px;
   padding: 16px 14px 16px 16px;
+  @media screen and (max-width: 600px) {
+    width: 300px;
+  }
+  @media screen and (max-width: 470px) {
+    width: 250px;
+  }
+  @media screen and (max-width: 400px) {
+    width: 180px;
+  }
 `;
 export const SearchInput = styled.input`
   width: 100%;
@@ -119,6 +188,13 @@ export const SearchButton = styled.div`
   line-height: 24px;
   font-feature-settings: "pnum" on, "lnum" on;
   color: #ffffff;
+
+  @media screen and (max-width: 600px) {
+    width: 100px;
+  }
+  @media screen and (max-width: 470px) {
+    width: 80px;
+  }
 `;
 export const ButtonBox = styled.div`
   display: flex;
@@ -160,6 +236,58 @@ export const BalanceDropDown = styled.div`
 export const PoolList = styled.div`
   margin-top: 48px;
   display: grid;
-  grid-template-columns: repeat(3, 30%);
-  grid-gap: 5%;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 400px));
+  grid-gap: 30px;
+  justify-content: center;
+  @media screen and (max-width: 450px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+  }
+`;
+export const MobileFooter = styled.div`
+  display: none;
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+    position: fixed;
+    height: 64px;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1a1b23;
+    box-shadow: 0px 0px 3px 0px #434a7e;
+    z-index: 10;
+  }
+`;
+export const PoolListContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-right: 10%;
+  @media screen and (max-width: 1024px) {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  @media screen and (max-width: 850px) {
+    flex-direction: column;
+    align-items: center;
+    & > *:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+`;
+export const SwitchGroup = styled.div`
+  display: flex;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+    & > *:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+`;
+export const SwitchContainer = styled.div`
+  margin: 0px 40px 0px 16px;
+  @media screen and (max-width: 500px) {
+    margin: 0px;
+  }
 `;

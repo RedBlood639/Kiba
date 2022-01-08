@@ -8,8 +8,10 @@ export const PoolItemLayout = styled.div`
   padding: 24px 24px 32px;
   min-height: 428px;
   background: #2c2d3a;
-  box-shadow: 12px 24px 80px rgba(30, 30, 42, 0.08);
   border-radius: 24px;
+  @media screen and (max-width: 400px) {
+    padding: 24px 10px 32px;
+  }
 `;
 
 type MarginDiv = {

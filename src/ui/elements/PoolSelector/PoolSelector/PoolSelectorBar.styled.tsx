@@ -85,7 +85,7 @@ export const SearchInput = styled.input`
   border: none;
 `;
 export const ChartContainer = styled.div`
-  height: 368px;
+  min-height: 368px;
   background: #353546;
   border-radius: 24px;
   padding: 21px 24px 16px 24px;

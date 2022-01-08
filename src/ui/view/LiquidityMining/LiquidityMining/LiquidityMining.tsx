@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import {
   PageLayout,
   Header,
-  Container,
   SearchPoolLayout,
   PoolListLayout,
   MarginDiv,
   Text,
   Row,
-  Col,
   PoolSearch,
   SearchInput,
   SearchButton,
@@ -16,6 +14,11 @@ import {
   ButtonItem,
   BalanceDropDown,
   PoolList,
+  MobileHeader,
+  MobileFooter,
+  PoolListContent,
+  SwitchGroup,
+  SwitchContainer,
 } from "./LiquidityMining.styled";
 
 import { Menu } from "ui/templates/Menu";
@@ -34,21 +37,8 @@ import {
 import Switch from "react-switch";
 import { PoolItemData } from "Types/components/PoolItem";
 import { PoolItem } from "ui/elements/PoolItem";
-// export interface PoolItemData {
-//   firstCoinIcon: any;
-//   firstCoinText: string;
-
-//   secondCoinIcon: any;
-//   secondCoinText: string;
-//   rewardTokenIcon: any[];
-//   valueLocked: string;
-//   myShare: String;
-//   availableBalance: string;
-//   myReward: string;
-//   buttonType: number;
-// firstCoinAmount: number;
-// secondCoinAmount: number;
-// }
+import { MobileMenu } from "ui/templates/Menu";
+import { FooterMenu } from "ui/templates/Menu";
 
 const DataList: PoolItemData[] = [
   {
@@ -132,67 +122,92 @@ const LiquidityMining = () => {
         <Menu />
         <WalletConnectMenu />
       </Header>
-      <Container>
-        <SearchPoolLayout>
+      <MobileHeader>
+        <MobileMenu />
+      </MobileHeader>
+      <SearchPoolLayout>
+        <Text
+          weight="bold"
+          color="white"
+          size={34}
+          font="Rubik"
+          lineHeight={42}
+          number={[600, 400]}
+          responsive={[{ size: 24 }, { size: 20 }]}
+        >
+          Provide Liquidity, Earn FTR
+        </Text>
+        <Text
+          weight="bold"
+          color="#0177FB"
+          size={48}
+          font="Rubik"
+          lineHeight={56}
+          number={[600, 400]}
+          responsive={[{ size: 46 }, { size: 36 }]}
+        >
+          $105,786,890.44
+        </Text>
+        <Row>
           <Text
-            weight="bold"
             color="white"
-            size={34}
-            font="Rubik"
-            lineHeight={42}
+            size={14}
+            weight="normal"
+            number={[]}
+            responsive={[]}
           >
-            Provide Liquidity, Earn FTR
+            Total Value Locked (TVL)
           </Text>
-          <Text
-            weight="bold"
-            color="#0177FB"
-            size={48}
-            font="Rubik"
-            lineHeight={56}
-          >
-            $105,786,890.44
-          </Text>
-          <Row>
-            <Text color="white" size={14} weight="normal">
-              Total Value Locked (TVL)
+          <MarginDiv left={16} right={8}>
+            <Text
+              color="#8B8CA7"
+              size={14}
+              weight="normal"
+              number={[]}
+              responsive={[]}
+            >
+              Tutorial
             </Text>
-            <MarginDiv left={16} right={8}>
-              <Text color="#8B8CA7" size={14} weight="normal">
-                Tutorial
-              </Text>
-            </MarginDiv>
-            <Next></Next>
-          </Row>
-          <MarginDiv top={24}>
-            <Row>
-              <PoolSearch>
-                <Row>
-                  <Search />
-                  <SearchInput placeholder="Search by token symbol or pool address" />
-                </Row>
-              </PoolSearch>
-              <MarginDiv left={24}>
-                <SearchButton>Search</SearchButton>
-              </MarginDiv>
-            </Row>
           </MarginDiv>
-        </SearchPoolLayout>
-        <PoolListLayout>
-          <Row space={true}>
-            <ButtonBox>
-              <ButtonItem active={!active} onClick={() => setActive(false)}>
-                Active
-              </ButtonItem>
-              <ButtonItem active={active} onClick={() => setActive(true)}>
-                Ended
-              </ButtonItem>
-            </ButtonBox>
+          <Next></Next>
+        </Row>
+        <MarginDiv top={24}>
+          <Row>
+            <PoolSearch>
+              <Row>
+                <Search />
+                <SearchInput placeholder="Search by token symbol or pool address" />
+              </Row>
+            </PoolSearch>
+            <MarginDiv left={24}>
+              <SearchButton>Search</SearchButton>
+            </MarginDiv>
+          </Row>
+        </MarginDiv>
+      </SearchPoolLayout>
+      <PoolListLayout>
+        <PoolListContent>
+          <ButtonBox>
+            <ButtonItem active={!active} onClick={() => setActive(false)}>
+              Active
+            </ButtonItem>
+            <ButtonItem active={active} onClick={() => setActive(true)}>
+              Ended
+            </ButtonItem>
+          </ButtonBox>
 
+          <SwitchGroup>
             <Row>
-              <Text size={14} color="white" weight="normal">
+              <Text
+                size={14}
+                color="white"
+                weight="normal"
+                number={[]}
+                responsive={[]}
+              >
                 My Liquidity Only
               </Text>
-              <MarginDiv left={16} right={40}>
+              <SwitchContainer>
                 <Switch
                   checked={switchChecked}
                   onChange={(checked) => setSwitchChecked(checked)}
@@ -207,22 +222,31 @@ const LiquidityMining = () => {
                   height={32}
                   width={64}
                 />
-              </MarginDiv>
-              <BalanceDropDown>
-                <Text size={14} color="white" weight="600">
-                  My Liquidity Only
-                </Text>
-                <Dropdown />
-              </BalanceDropDown>
+              </SwitchContainer>
             </Row>
-          </Row>
-          <PoolList>
-            {DataList.map((Item, index) => (
-              <PoolItem data={Item} key={index}></PoolItem>
-            ))}
-          </PoolList>
-        </PoolListLayout>
-      </Container>
+            <BalanceDropDown>
+              <Text
+                size={14}
+                color="white"
+                weight="600"
+                number={[]}
+                responsive={[]}
+              >
+                My Liquidity Only
+              </Text>
+              <Dropdown />
+            </BalanceDropDown>
+          </SwitchGroup>
+        </PoolListContent>
+        <PoolList>
+          {DataList.map((Item, index) => (
+            <PoolItem data={Item} key={index}></PoolItem>
+          ))}
+        </PoolList>
+      </PoolListLayout>
+      <MobileFooter>
+        <FooterMenu />
+      </MobileFooter>
     </PageLayout>
   );
 };

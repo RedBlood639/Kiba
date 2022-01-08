@@ -7,17 +7,24 @@ import {
   Col,
   Text,
   MarginDiv,
-  ButtonItem,
+  ButtonItem1,
+  ButtonItem2,
   SearchBar,
   SearchInput,
   Table,
   Content,
   ContentItem,
+  MobileHeader,
+  MobileFooter,
+  TableLayout,
+  ContentItemGroup,
 } from "./Develop.styled";
 
 import { Menu } from "ui/templates/Menu";
 import { WalletConnectMenu } from "ui/templates/Menu";
 import { Analystis, Rocket, Search } from "assets/icon";
+import { MobileMenu } from "ui/templates/Menu";
+import { FooterMenu } from "ui/templates/Menu";
 const Vftr = () => {
   return (
     <PageLayout>
@@ -25,12 +32,15 @@ const Vftr = () => {
         <Menu />
         <WalletConnectMenu />
       </Header>
+      <MobileHeader>
+        <MobileMenu />
+      </MobileHeader>
       <Container>
-        <Row top={true} space={true}>
+        <Row space={true}>
           <Text weight="600" size={18} lineHeight={28} color="white">
             My Token List
           </Text>
-          <ButtonItem width={220}>Create A Token</ButtonItem>
+          <ButtonItem1>Create A Token</ButtonItem1>
         </Row>
         <SearchBar>
           <MarginDiv right={8}>
@@ -38,26 +48,28 @@ const Vftr = () => {
           </MarginDiv>
           <SearchInput placeholder="Search by token symbols, name or dareess"></SearchInput>
         </SearchBar>
-        <Table>
-          <thead>
-            <tr>
-              <th>Token</th>
-              <th>Token Name</th>
-              <th>Total Issuance</th>
-              <th>Holders</th>
-              <th>Price/Market Cap/Liquidity</th>
-              <th>Balance</th>
-              <th>Management Operation</th>
-            </tr>
-          </thead>
-        </Table>
+        <TableLayout>
+          <Table>
+            <thead>
+              <tr>
+                <th>Token</th>
+                <th>Token Name</th>
+                <th>Total Issuance</th>
+                <th>Holders</th>
+                <th>Price/Market Cap/Liquidity</th>
+                <th>Balance</th>
+                <th>Management Operation</th>
+              </tr>
+            </thead>
+          </Table>
+        </TableLayout>
         <MarginDiv top={24} left={16}>
           <Text weight="600" color="white" size={16}>
             No result found
           </Text>
         </MarginDiv>
         <Content>
-          <Row>
+          <ContentItemGroup>
             <ContentItem>
               <MarginDiv bottom={8}>
                 <Rocket />
@@ -83,12 +95,15 @@ const Vftr = () => {
                 other tools.
               </Text>
             </ContentItem>
-          </Row>
+          </ContentItemGroup>
           <MarginDiv top={40}>
-            <ButtonItem width={341}>Create A Token</ButtonItem>
+            <ButtonItem2>Create A Token</ButtonItem2>
           </MarginDiv>
         </Content>
       </Container>
+      <MobileFooter>
+        <FooterMenu />
+      </MobileFooter>
     </PageLayout>
   );
 };

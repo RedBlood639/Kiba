@@ -108,3 +108,8 @@ export const Button = styled.div`
   font-feature-settings: "pnum" on, "lnum" on;
   color: #e33319;
 `;
+export const Layout = styled.div`
+  @media screen and (max-width: 687px) {
+    overflow-x: scroll;
+  }
+`;

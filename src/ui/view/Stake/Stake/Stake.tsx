@@ -17,7 +17,7 @@ import {
 
 import { ChartContain } from "ui/templates/ChartContain";
 import { OrderTable } from "ui/templates/OrderTable";
-import { MTV, FTR } from "assets/icon";
+import { Dai, FTR } from "assets/icon";
 
 import { Menu } from "ui/templates/Menu";
 import { WalletConnectMenu } from "ui/templates/Menu";
@@ -29,9 +29,9 @@ import { FooterMenu } from "ui/templates/Menu";
 
 const TableDatas: TableData[] = [
   {
-    receiveCoinIcon: MTV,
+    receiveCoinIcon: Dai,
     receiveCoinAmount: 132.51853983,
-    receiveCoinType: "MTV",
+    receiveCoinType: "DAI",
     paidCoinAmount: 0.001432,
     painCoinType: "BNB",
     price: 0.0000108,
@@ -56,45 +56,42 @@ const Stake = () => {
   });
   return (
     <>
-      {isDesktopOrLaptop ? (
-        <StakeLayout>
-          <ChartContainer>
-            <ChartHeader>
-              <Menu />
-            </ChartHeader>
-            <ChartLayout>
-              <ChartContain></ChartContain>
-            </ChartLayout>
-            <TableLayout>
-              <OrderTable tableData={TableDatas} />
-            </TableLayout>
-          </ChartContainer>
-          <DetailContainer>
-            <DetailHeader>
-              <WalletConnectMenu />
-            </DetailHeader>
-            <DetailLayout>
-              <CardChange></CardChange>
-            </DetailLayout>
-          </DetailContainer>
-        </StakeLayout>
-      ) : (
-        <MobileLayout>
-          <MobileHeader>
-            <MobileMenu />
-          </MobileHeader>
-          <MobileChartContainer>
+      <StakeLayout>
+        <ChartContainer>
+          <ChartHeader>
+            <Menu />
+          </ChartHeader>
+          <ChartLayout>
             <ChartContain></ChartContain>
+          </ChartLayout>
+          <TableLayout>
             <OrderTable tableData={TableDatas} />
-          </MobileChartContainer>
-          <MobileDetailContainer>
+          </TableLayout>
+        </ChartContainer>
+        <DetailContainer>
+          <DetailHeader>
+            <WalletConnectMenu />
+          </DetailHeader>
+          <DetailLayout>
             <CardChange></CardChange>
-          </MobileDetailContainer>
-          <MobileFooter>
-            <FooterMenu></FooterMenu>
-          </MobileFooter>
-        </MobileLayout>
-      )}
+          </DetailLayout>
+        </DetailContainer>
+      </StakeLayout>
+      <MobileLayout>
+        <MobileHeader>
+          <MobileMenu />
+        </MobileHeader>
+        <MobileChartContainer>
+          <ChartContain></ChartContain>
+          <OrderTable tableData={TableDatas} />
+        </MobileChartContainer>
+        <MobileDetailContainer>
+          <CardChange></CardChange>
+        </MobileDetailContainer>
+        <MobileFooter>
+          <FooterMenu></FooterMenu>
+        </MobileFooter>
+      </MobileLayout>
     </>
   );
 };

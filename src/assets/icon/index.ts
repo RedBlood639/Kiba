@@ -41,3 +41,4 @@ export { default as Analysis } from "./Analysis";
 export { default as Plus2 } from "./Plus2";
 export { default as Volumn } from "./Volumn";
 export { default as BTC } from "./BTC";
+export { default as Menu } from "./Menu";

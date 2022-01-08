@@ -2,6 +2,12 @@
 import styled from "styled-components";
 
 // -------------------------------------------------------
+export const PLabel = styled.label`
+  @media screen and (max-width: 500px) {
+    font-size: 10px;
+  }
+`;
+
 export const WalletConnectButtonLayout = styled.div`
   display: flex;
   background: #2c2d3a;
@@ -36,8 +42,13 @@ export const ConnectButton = styled.button`
   font-feature-settings: "pnum" on, "lnum" on;
   color: #ffffff;
   margin-left: 16px;
-  @media screen and (max-width: 375px) {
+
+  @media screen and (max-width: 425px) {
     width: 136px;
+  }
+  @media screen and (max-width: 375px) {
+    width: 100px;
+    font-size: 10px;
   }
 `;
 export const IconLayout = styled.div`
@@ -65,4 +76,27 @@ export const Text = styled.div`
   line-height: 28px;
   font-feature-settings: "pnum" on, "lnum" on;
   color: #ffffff;
+`;
+export const SelectDiv = styled.div`
+  margin-left: 20px;
+  @media screen and (max-width: 500px) {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  @media screen and (max-width: 375px) {
+    margin: 0px;
+  }
+`;
+export const SelectButton = styled.div`
+  background: #3b3c4e;
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const ButtonGroup = styled.div`
+  display: flex;
+  align-items: center;
 `;

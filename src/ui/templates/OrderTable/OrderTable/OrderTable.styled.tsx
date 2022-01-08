@@ -65,7 +65,8 @@ export const IconLayout = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 15%;
+  min-width: 40px;
+  min-height: 40px;
 `;
 export const TextLayout = styled.div`
   display: flex;
@@ -83,4 +84,10 @@ export const Text = styled.div<{ color: string; size: number; weight: string }>`
 `;
 export const Row = styled.div`
   display: flex;
+  flex-wrap: wrap;
+`;
+export const TableLayout = styled.div`
+  @media screen and (max-width: 491px) {
+    overflow-x: scroll;
+  }
 `;

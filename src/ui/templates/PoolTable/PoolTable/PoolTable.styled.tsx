@@ -100,6 +100,9 @@ export const OptionList = styled.div`
   & > *:not(:last-child) {
     margin-right: 24px;
   }
+  @media screen and (max-width: 570px) {
+    width: 100%;
+  }
 `;
 
 type OptionItemProps = {
@@ -117,7 +120,7 @@ export const OptionItem = styled.div<OptionItemProps>`
   display: flex;
   align-items: center;
   padding: 4px 0px;
-  ${(props) => (props.active ? "box-shadow: inset 0px -2px 0px #0177fb;" : "")};
+  ${(props) => (props.active ? "border-bottom:3px solid #0177fb;" : "")};
 `;
 export const SearchBar = styled.div`
   width: 362px;
@@ -128,6 +131,9 @@ export const SearchBar = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  @media screen and (max-width: 570px) {
+    width: 100%;
+  }
 `;
 export const SearchInput = styled.input`
   background: rgba(0, 0, 0, 0);
@@ -171,5 +177,28 @@ export const Table = styled.table`
   }
   tBody > tr {
     height: 56px;
+  }
+`;
+export const Layout = styled.div`
+  width: 100%;
+  @media screen and (max-width: 1276px) {
+    overflow-x: scroll;
+  }
+  @media screen and (max-width: 1024px) {
+    overflow-x: hidden;
+  }
+  @media screen and (max-width: 815px) {
+    overflow-x: scroll;
+  }
+`;
+export const Content = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  @media screen and (max-width: 570px) {
+    flex-direction: column;
+    & > *:not(:last-child) {
+      margin-bottom: 15px;
+    }
   }
 `;

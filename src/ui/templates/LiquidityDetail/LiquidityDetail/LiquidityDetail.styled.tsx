@@ -15,7 +15,7 @@ export const AddLayoutMain = styled.div`
   z-index: 1;
 `;
 export const AddLayoutDescription = styled.div`
-  height: 154px;
+  min-height: 154px;
   background: #353546;
   border-radius: 24px;
   margin-top: -10px;
@@ -53,6 +53,7 @@ export const Row = styled.div`
 `;
 export const DropdownPair = styled.div`
   display: flex;
+  justify-content: space-between;
   & > *:not(:last-child) {
     margin-right: 16px;
   }

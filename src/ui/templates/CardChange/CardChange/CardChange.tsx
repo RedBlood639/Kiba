@@ -58,7 +58,7 @@ const customStyles = {
     padding: "24px 24px 32px",
     background: "#23242F",
     borderRadius: "24px",
-    overflow: "auto",
+    overflow: "hidden",
     outline: "none",
   },
   overlay: {

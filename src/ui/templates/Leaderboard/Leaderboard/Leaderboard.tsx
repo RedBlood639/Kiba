@@ -7,9 +7,6 @@ import {
   AmountTotal,
   RankingList,
   Text,
-  MarginDiv,
-  Row,
-  Col,
 } from "./Leaderboard.styled";
 
 import { RankingItemData } from "Types/components/RankingItem";
@@ -31,7 +28,14 @@ const DataList: RankingItemData[] = [
 const Leaderboard: React.FC = () => {
   return (
     <Layout>
-      <Text size={18} weight="600" lineHeight={28} color="white">
+      <Text
+        size={18}
+        weight="600"
+        lineHeight={28}
+        color="white"
+        number={[]}
+        responsive={[]}
+      >
         Leaderboard
       </Text>
       <Total>
@@ -42,10 +46,18 @@ const Leaderboard: React.FC = () => {
             lineHeight={36}
             size={24}
             color="#0177FB"
+            number={[500]}
+            responsive={[{size:20}]}
           >
             1506
           </Text>
-          <Text weight="600" color="white" size={14}>
+          <Text
+            weight="600"
+            color="white"
+            size={14}
+            number={[500]}
+            responsive={[{size:12}]}
+          >
             Number of Users
           </Text>
         </UserTotal>
@@ -56,10 +68,18 @@ const Leaderboard: React.FC = () => {
             lineHeight={36}
             size={24}
             color="#0177FB"
+            number={[]}
+            responsive={[]}
           >
             249,412.544733
           </Text>
-          <Text weight="600" color="white" size={14}>
+          <Text
+            weight="600"
+            color="white"
+            size={14}
+            number={[]}
+            responsive={[]}
+          >
             Total Amount (DEX)
           </Text>
         </AmountTotal>
