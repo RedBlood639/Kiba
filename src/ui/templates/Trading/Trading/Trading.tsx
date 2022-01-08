@@ -61,7 +61,7 @@ const CardChange = () => {
               </Text>
             </MarginDiv>
             <Text size={14} color="#8B8CA7" weight="600">
-              DEX $17.38
+              KIBA $17.38
             </Text>
           </Row>
         </Row>

@@ -41,12 +41,12 @@ const MenuData: MenuItemData[] = [
         subDetail: "Successfully complete a trade to get a FTR airdrop",
         router: "tradingMining",
       },
-      {
-        subIcon: Header.VFTR,
-        subTitle: "vFTR",
-        subDetail: "Mint vFTR to earn more DoDo",
-        router: "vftr",
-      },
+      // {
+      //   subIcon: Header.VFTR,
+      //   subTitle: "vFTR",
+      //   subDetail: "Mint vFTR to earn more DoDo",
+      //   router: "vftr",
+      // },
     ],
     router: "none",
   },
